@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +25,10 @@ Route::get('/', function () {
 // });
 
 Auth::routes();
+Route::group(['middleware'=>'checkAdmin'],function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/cat', 'CategoryController@index')->name('cate');
+    Route::get('/product', 'ProductsController@index')->name('product');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/cat', 'CategoryCategory@index')->name('cate');
-Route::get('/product', 'ProductsController@index')->name('product');
 
