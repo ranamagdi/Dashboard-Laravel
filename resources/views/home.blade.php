@@ -13,8 +13,8 @@
                           @if ($category->count()>0)
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title english</th>
-                            <th scope="col">decription english</th>
+                            <th scope="col"> {{__('langauge.TITLE')}}</th>
+                            <th scope="col"> {{__('langauge.DESCRIPTION')}}</th>
                             <th scope="col">Parent id</th>
                             <th scope="col">Created at</th>
                           </tr>
@@ -24,8 +24,8 @@
                             @foreach ($category as $item )
                             <tr>
                                 <th scope="row">{{$item->id}}</th>
-                                <th scope="row">{{$item->title_en}}</th>
-                                <th scope="row">{{$item->description_en}}</th>
+                                <th scope="row">{{$item->title}}</th>
+                                <th scope="row">{{$item->description}}</th>
                                 <th scope="row">{{$item->parent_id}}</th>
                                 <th scope="row">{{$item->created_at}}</th>
                               </tr>
@@ -54,8 +54,8 @@
                          @if ($product->count()>0)
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title english</th>
-                            <th scope="col">decription english</th>
+                            <th scope="col"> {{__('langauge.TITLE')}}</th>
+                            <th scope="col"> {{__('langauge.DESCRIPTION')}}</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Created at</th>
@@ -66,8 +66,8 @@
                             @foreach ($product as $item )
                             <tr>
                                 <th scope="row">{{$item->id}}</th>
-                                <th scope="row">{{$item->title_en}}</th>
-                                <th scope="row">{{$item->description_en}}</th>
+                                <th scope="row">{{$item->title}}</th>
+                                <th scope="row">{{$item->description}}</th>
                                 <th scope="row">{{$item->price}}</th>
                                 <th scope="row">{{$item->quantity}}</th>
                                 <th scope="row">{{$item->created_at}}</th>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 /*
@@ -25,10 +26,14 @@ Route::get('/', function () {
 // });
 
 Auth::routes();
-Route::group(['middleware'=>'checkAdmin'],function(){
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/cat', 'CategoryController@index')->name('cate');
-    Route::get('/product', 'ProductsController@index')->name('product');
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] ], function(){ //...
+    Route::group(['middleware'=>'checkAdmin'],function(){
+        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/cat', 'CategoryController@index')->name('cate');
+        Route::get('/product', 'ProductsController@index')->name('product');
+    });
+
 });
+
 
 

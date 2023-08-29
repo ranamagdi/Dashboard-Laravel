@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/home') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{__('langauge.DASHBOARD')}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -11,11 +11,18 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
              <li>
-                <a class="nav-link" href="{{ route('cate') }}">Category</a>
+                <a class="nav-link" href="{{ route('cate') }}">Category </a>
              </li>
              <li>
                 <a class="nav-link" href="{{ route('product') }}">Product</a>
              </li>
+             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <li>
+                <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                    {{ $properties['native'] }}
+                </a>
+            </li>
+    @endforeach
             </ul>
 
             <!-- Right Side Of Navbar -->
