@@ -31,6 +31,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/cat', 'CategoryController@index')->name('cate');
         Route::get('/product', 'ProductsController@index')->name('product');
+
+        Route::get('/categories/show{id}', 'CategoryController@show')->name('categories.show');
+        Route::get('/categories/delete{id}', 'CategoryController@delete')->name('categories.delete');
     });
 
 });

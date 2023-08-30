@@ -17,6 +17,7 @@
                             <th scope="col"> {{__('langauge.DESCRIPTION')}}</th>
                             <th scope="col">Parent id</th>
                             <th scope="col">Created at</th>
+                            <th scope="col">Operation</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,11 @@
                                 <th scope="row">{{$item->description}}</th>
                                 <th scope="row">{{$item->parent_id}}</th>
                                 <th scope="row">{{$item->created_at}}</th>
+                                <th scope="row" class="d-flex ">
+                                    <a href="{{route('categories.show',$item->id)}}" class="btn btn-success  mx-2 p-2"><i class="fa-solid fa-eye"></i></a>
+                                    <a  href="{{route('categories.delete',$item->id)}}"  class="btn btn-danger   mx-2 p-2"><i class="fa-solid fa-trash"></i></a>
+                                </th>
+
                               </tr>
 
                             @endforeach
@@ -59,6 +65,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Created at</th>
+                            <th scope="col">Operation</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -71,6 +78,10 @@
                                 <th scope="row">{{$item->price}}</th>
                                 <th scope="row">{{$item->quantity}}</th>
                                 <th scope="row">{{$item->created_at}}</th>
+                                <th scope="row" class="d-flex">
+                                    <a class="btn btn-success  mx-2 p-2"><i class="fa-solid fa-eye"></i></a>
+                                    <a class="btn btn-danger   mx-2 p-2"><i class="fa-solid fa-trash"></i></a>
+                                </th>
                               </tr>
 
                             @endforeach
