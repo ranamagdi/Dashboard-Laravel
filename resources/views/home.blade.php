@@ -6,8 +6,15 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card" >
-                <div class="card-header">Categories <span class="badge badge-dark">{{$category->count()}}</span></div>
+                <div class="card-header d-flex justify-content-between">
+                    <h4>Categories <span class="badge badge-dark">{{$category->count()}}</span></h4>
+                    <a href="{{route('categories.create')}}" class="btn btn-success ">Create New Category</a>
+                </div>
                 <div class="card-body">
+                    @if (session('Success'))
+                    <div class="alert alert-success">{{session('Success')}} </div>
+                    @endif
+
                     <table class="table table-striped table-dark">
                         <thead>
                           @if ($category->count()>0)

@@ -34,6 +34,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
         Route::get('/categories/show{id}', 'CategoryController@show')->name('categories.show');
         Route::get('/categories/delete{id}', 'CategoryController@delete')->name('categories.delete');
+        Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
+        Route::post('/categories/save', 'CategoryController@save')->name('categories.save');
     });
 
 });
