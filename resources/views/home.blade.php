@@ -14,12 +14,13 @@
                     @if (session('Success'))
                     <div class="alert alert-success">{{session('Success')}} </div>
                     @endif
-
-                    <table class="table table-striped table-dark">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-dark ">
                         <thead>
                           @if ($category->count()>0)
                           <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">category image</th>
                             <th scope="col"> {{__('langauge.TITLE')}}</th>
                             <th scope="col"> {{__('langauge.DESCRIPTION')}}</th>
                             <th scope="col">Parent id</th>
@@ -31,6 +32,9 @@
 
                             @foreach ($category as $item )
                             <tr>
+                                <th scope="row">
+                                    <img src="{{asset('categories/image/'.$item->cat_img)}}" style="width: 70px;height: 70px">
+                                 </th>
                                 <th scope="row">{{$item->id}}</th>
                                 <th scope="row">{{$item->title}}</th>
                                 <th scope="row">{{$item->description}}</th>
@@ -39,6 +43,7 @@
                                 <th scope="row" class="d-flex ">
                                     <a href="{{route('categories.show',$item->id)}}" class="btn btn-success  mx-2 p-2"><i class="fa-solid fa-eye"></i></a>
                                     <a  href="{{route('categories.delete',$item->id)}}"  class="btn btn-danger   mx-2 p-2"><i class="fa-solid fa-trash"></i></a>
+                                    <a  href="{{route('categories.edit',$item->id)}}"  class="btn btn-info   mx-2 p-2"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </th>
 
                               </tr>
@@ -52,6 +57,7 @@
 
                         </tbody>
                       </table>
+                    </div>
 
                 </div>
               </div>
@@ -88,6 +94,7 @@
                                 <th scope="row" class="d-flex">
                                     <a class="btn btn-success  mx-2 p-2"><i class="fa-solid fa-eye"></i></a>
                                     <a class="btn btn-danger   mx-2 p-2"><i class="fa-solid fa-trash"></i></a>
+
                                 </th>
                               </tr>
 

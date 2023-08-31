@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $category=DB::table('categories')->select('id','title_'.app()->getLocale()." as title",'description_'.app()->getLocale()." as description",'parent_id','created_at')->get();
+        $category=DB::table('categories')->select('id','cat_img','title_'.app()->getLocale()." as title",'description_'.app()->getLocale()." as description",'parent_id','created_at')->get();
         $product=DB::table('products')->select('id','title_'.app()->getLocale()." as title",'description_'.app()->getLocale()." as description",'price','quantity','created_at')->get();
         return view('home',['category'=>$category,'product'=>$product]);
     }

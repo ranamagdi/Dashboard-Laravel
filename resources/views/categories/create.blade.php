@@ -12,8 +12,16 @@
               <input type="number" class="form-control" name="id">
             </div>
             @error('id')
-              <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+             <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Image</label>
+              <input type="file" class="form-control" name="cat_img">
+            </div>
+            @error('cat_img')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title english</label>
                 <input type="text" class="form-control" name="title_en">
@@ -52,7 +60,7 @@
 
                 </select>
               </div>
-              
+
             <button type="submit" class="btn btn-primary w-100" name="submit-btn">Submit</button>
           </form>
     </div>

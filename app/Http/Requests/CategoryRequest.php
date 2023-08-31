@@ -32,6 +32,7 @@ class CategoryRequest extends FormRequest
             'description_en' => 'required|min:10|max:255',
             'description_ar' => 'required|min:10|max:255',
             'parent_id' => 'required|max:255',
+            'cat_img' => 'required|max:2048|image|mimes:png,jpg,jpeg,gif',
         ];
     }
 }
