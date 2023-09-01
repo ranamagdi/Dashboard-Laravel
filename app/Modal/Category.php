@@ -9,6 +9,6 @@ class Category extends Model
 {
     //
     protected $fillable = [
-        'title_en', 'title_ar', 'description_en','description_ar','parent_id','cat_img',
+        'id','title_en', 'title_ar', 'description_en','description_ar','parent_id','cat_img',
     ];
 }
